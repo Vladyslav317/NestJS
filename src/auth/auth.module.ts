@@ -10,6 +10,7 @@ import { AtStrategy } from './at.strategy';
 import { RtStrategy } from './rt.strategy';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Auth, AuthSchema } from './schemas/auth.schema';
+import { AuthRepository } from './auth.repository';
 
 @Module({
   imports: [
@@ -19,7 +20,13 @@ import { Auth, AuthSchema } from './schemas/auth.schema';
     CaslModule,
     MongooseModule.forFeature([{ name: Auth.name, schema: AuthSchema}]),
   ],
-  providers: [AuthService, LocalStrategy, AtStrategy, RtStrategy],
+  providers: [
+    AuthService,
+    LocalStrategy,
+    AtStrategy,
+    RtStrategy,
+    AuthRepository,
+  ],
   controllers: [AuthController]
 })
 export class AuthModule {}
