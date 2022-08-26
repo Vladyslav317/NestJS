@@ -9,7 +9,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { CaslAbilityFactory } from 'src/casl/casl-ability.factory';
+import { ParseObjectIdPipe } from 'src/pipes/parse-object-id.pipe';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './schemas/users.schema';
@@ -35,7 +35,7 @@ export class UsersController {
 
   @Get(':id')
   @HttpCode(HttpStatus.OK)
-  findOne(@Param('id') id: string): Promise<User> {
+  findOne(@Param('id', ParseObjectIdPipe) id: string): Promise<User> {
     return this.usersService.findById(id);
   }
 
