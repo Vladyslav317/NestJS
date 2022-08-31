@@ -3,3 +3,5 @@ Dockerfile
 .dockerignore
 docker-compose.yml
 database-data
+node_modules
+.editorconfig
