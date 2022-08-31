@@ -62,7 +62,6 @@ export class AuthRepository {
         username: userFoundByEmail.name,
         email: userFoundByEmail.email,
         password: userFoundByEmail.password,
-        isAdmin: userFoundByEmail.isAdmin,
         refreshToken: rt,
       });
 

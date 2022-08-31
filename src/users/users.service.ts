@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { ObjectId } from "mongoose";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { UsersRepository } from "./users.repository";
@@ -15,7 +16,7 @@ export class UsersService {
     return this.usersRepository.findByUsername(name);
   }
 
-  async findById(id: string) {
+  async findById(id: ObjectId) {
     return this.usersRepository.findById(id);
   }
 
