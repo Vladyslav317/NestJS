@@ -9,19 +9,19 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('NestJS')
-    .setDescription('NestJS API description')
-    .setVersion('1.0')
-    .addTag('NestJS')
-    .addBearerAuth(
-      {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'Token',
-      },
-      'access-token',
-    )
-    .build();
+  .setTitle('NestJS')
+  .setDescription('NestJS API description')
+  .setVersion('1.0')
+  .addTag('NestJS')
+  .addBearerAuth(
+    {
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'Token',
+    },
+    'access-token',
+  )
+  .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
