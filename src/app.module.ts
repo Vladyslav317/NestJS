@@ -12,10 +12,12 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     UsersModule,
-    MongooseModule.forRoot('mongodb://db:27017/nestJS_db'),
+    MongooseModule.forRoot(
+      'mongodb+srv://Vladyslav317:19951996@cluster0.wgvck9q.mongodb.net/nestJS_DB',
+    ),
     AuthModule,
     CaslModule,
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [
