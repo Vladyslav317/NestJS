@@ -9,13 +9,18 @@ import { RolesGuard } from './users/roles.guard';
 import { CaslModule } from './casl/casl.module';
 
 @Module({
-  imports: [UsersModule, MongooseModule.forRoot(`mongodb://db:27017/nestJS_db`), AuthModule, CaslModule],
+  imports: [
+    UsersModule,
+    MongooseModule.forRoot('mongodb://localhost:27017/nestJS_db'),
+    AuthModule,
+    CaslModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,
     {
       provide: APP_GUARD,
-      useClass: RolesGuard
+      useClass: RolesGuard,
     },
   ],
 })
