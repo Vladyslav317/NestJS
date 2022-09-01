@@ -11,13 +11,14 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true,
+    }),
     UsersModule,
-    MongooseModule.forRoot(
-      'mongodb+srv://Vladyslav317:19951996@cluster0.wgvck9q.mongodb.net/nestJS_DB',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URL),
     AuthModule,
     CaslModule,
-    ConfigModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [
