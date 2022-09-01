@@ -1,5 +1,5 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { ApiProperty } from "@nestjs/swagger";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { ApiProperty } from '@nestjs/swagger';
 import { Document } from 'mongoose';
 
 export type AuthDocument = Auth & Document;
@@ -8,23 +8,23 @@ export type AuthDocument = Auth & Document;
 export class Auth {
   @ApiProperty({ example: 'user', description: 'User' })
   @Prop()
-  name: string
+  name: string;
 
   @ApiProperty({ example: 'user@gmail.com', description: 'Mailbox' })
   @Prop()
-  email: string
+  email: string;
 
   @ApiProperty({ example: '43gf445r54', description: 'Password' })
   @Prop()
-  password: string
+  password: string;
 
   @ApiProperty({ example: 'true or false', description: 'Admin or User' })
   @Prop()
-  isAdmin: boolean
+  isAdmin: boolean;
 
   @ApiProperty({ example: 'refreshToken', description: 'Token' })
   @Prop()
-  refreshToken: string
+  refreshToken: string;
 }
 
 export const AuthSchema = SchemaFactory.createForClass(Auth);

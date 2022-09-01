@@ -13,6 +13,6 @@ import { UsersService } from './users.service';
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     CaslModule,
   ],
-  exports: [UsersService]
+  exports: [UsersService],
 })
 export class UsersModule {}
