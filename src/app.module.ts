@@ -11,7 +11,7 @@ import { CaslModule } from './casl/casl.module';
 @Module({
   imports: [
     UsersModule,
-    MongooseModule.forRoot('mongodb://localhost:27017/nestJS_db'),
+    MongooseModule.forRoot('mongodb://db:27017/nestJS_db'),
     AuthModule,
     CaslModule,
   ],
